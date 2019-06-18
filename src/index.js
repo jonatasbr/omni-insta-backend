@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 
 const server = require('http').Server(app);
-const io = require('socket.io').Server(server);
+const io = require('socket.io')(server);
 
 
 mongoose.connect('mongodb+srv://semana:semana@cluster0-fbrr9.mongodb.net/test?retryWrites=true&w=majority', {
@@ -24,4 +24,4 @@ app.use('/files', express.static( path.resolve( __dirname, '..', 'uploads', 'res
 
 app.use(require('./routes'))
 
-server.listen(3000);
+server.listen(3333);
